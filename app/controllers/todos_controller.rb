@@ -33,7 +33,6 @@ class TodosController < ApplicationController
 
   def destroy_completed
     @todos_for_destruction = Todo.completed.all
-    
     Todo.completed.destroy_all
   end
 

@@ -2,3 +2,23 @@ $("#<%= dom_id(todo) %>")
   .toggleClass("completed", <%= todo.completed? %>)
   .find("input.toggle")
   .prop("checked", <%= todo.completed? %>);
+
+$("#<%= dom_id(todo, :sub_task_for) %> li").each(function() {
+  $(this)
+  .toggleClass("completed", <%= todo.completed? %>)
+  .find("input.toggle")
+  .prop("checked", <%= todo.completed? %>);
+});
+// Mark parent task complete is all sub tasks are complete
+<% if todo.is_sub_task? %>
+  var li_len = $("#<%= dom_id(todo) %>").closest('ul').find("li").length;
+  var li_complete_len = $("#<%= dom_id(todo) %>").closest('ul').find("li.completed").length;
+
+  if( li_len == li_complete_len) {
+    <% sub_task = todo %>
+    $("#<%= dom_id(sub_task.todo) %>")
+      .toggleClass("completed", "true")
+      .find("input.toggle")
+      .prop("checked", "true");
+  }
+<% end %>

@@ -4,6 +4,8 @@ Todos::Application.routes.draw do
       post :toggle
     end
 
+    resources :sub_tasks, only: [:create]
+
     collection do
       post :toggle_all
       get :active
