@@ -1,5 +1,5 @@
 $("#<%= dom_id(@sub_task.todo, :sub_task_for)%>").append("<%= j(render(@sub_task)) %>");
 
 $('#new-sub-task').each(function() {
-    $("input").val("");
+    $("input[name='sub_task[title]']").val("");
 });
