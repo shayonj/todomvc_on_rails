@@ -413,3 +413,26 @@ label[for='toggle-all'] {
 .hidden{
   display:none;
 }
+
+ul .sub_tasks{
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+}
+
+ul #new-sub-task{
+  border: none;
+  background: rgba(0, 0, 0, 0.02);
+  font-size: 18px;
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  margin-right: 12px;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}

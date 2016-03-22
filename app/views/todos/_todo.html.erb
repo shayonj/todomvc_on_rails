@@ -8,7 +8,16 @@
       <button type="submit" class="destroy"></button>
     <% end %>
   </div>
+
   <%= form_for(todo, remote: true, html: { "data-behavior" => "edit_todo_form" }) do |f| %>
     <%= f.text_field :title, class: "edit", "data-behavior" => "todo_title_input", "data-original-value" => todo.title %>
   <% end %>
 </li>
+
+<ul class="sub_tasks" id="<%= dom_id(todo, :sub_task_for)%>">
+  <%= form_for(SubTask.new, url: todo_sub_tasks_path(todo), remote: true) do |f| %>
+    <%= f.text_field :title, placeholder: "Anything to be added for #{todo.title}?", id: "new-sub-task", autofocus: true, "data-behavior" => "submit_on_enter" %>
+  <% end %>
+
+  <%= render todo.sub_tasks %>
+</ul>

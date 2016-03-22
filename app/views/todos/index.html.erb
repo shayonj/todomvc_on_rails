@@ -15,13 +15,11 @@
     <% end %>
     <label for="toggle-all">Mark all as complete</label>
     <ul id="todo-list">
-      <%= render @todos.all %>
+      <%= render @todos.main_tasks %>
     </ul>
   </section>
 
-
   <%= render "footer" %>
-
 
 </section>
 
